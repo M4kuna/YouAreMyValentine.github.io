@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will you be my valentine?</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    #message {
+      font-size: 24px;
+      text-align: center;
+    }
+    .option {
+      cursor: pointer;
+      padding: 20px;
+      transition: all 0.5s ease;
+    }
+    #yes {
+      background-color: lightgreen;
+    }
+    #no {
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="message">
+      Will you be my valentine?
+      <div id="yes" class="option" onclick="growYes()">Yes</div>
+      <div id="no" class="option" onclick="shrinkNo()">No</div>
+    </div>
+  </div>
+  <script>
+    function shrinkNo() {
+      let noButton = document.getElementById('no');
+      let message = document.getElementById('message');
+
+      noButton.style.fontSize = '10px';
+      noButton.style.opacity = '0';
+      setTimeout(() => {
+        noButton.style.display = 'none';
+      }, 500);
+
+      message.style.fontSize = '32px';
+    }
+
+    function growYes() {
+      let yesButton = document.getElementById('yes');
+      let message = document.getElementById('message');
+
+      yesButton.style.fontSize = '32px';
+      yesButton.style.width = '100%';
+      yesButton.style.height = '100vh';
+      yesButton.style.lineHeight = '100vh';
+      yesButton.innerText = 'Yes, I will be your valentine! ❤️';
+
+      let noButton = document.getElementById('no');
+      noButton.style.display = 'none';
+
+      message.style.fontSize = '32px';
+    }
+  </script>
+</body>
+</html>
